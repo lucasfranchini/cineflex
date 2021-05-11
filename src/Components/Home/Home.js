@@ -1,7 +1,7 @@
 import "./Home.css";
 import Movie from "../Movie/Movie";
 
-export default function Home(){
+export default function Home(props){
     const movies = [
         {
             id: 1,
@@ -22,7 +22,7 @@ export default function Home(){
                 Selecione o filme        
             </div>
             <ul>
-                {movies.map((movie)=><Movie key={movie.id} movie={movie}/>)}
+                {movies.map((movie)=><Movie key={movie.id} movie={movie} changeId={props.changeId}/>)}
             </ul>
         </div>
     );
