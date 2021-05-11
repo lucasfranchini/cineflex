@@ -16,7 +16,7 @@ function App(){
 				<Route path="/" exact>
                     <Home changeId={setSelectedId}/>
 				</Route>
-				<Route path={`/sessoes/:${selectedId}`} exact>
+				<Route path="/sessoes/:idFilme" exact>
                     <Session/>
 				</Route>
 			</Switch>
