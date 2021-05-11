@@ -1,28 +1,22 @@
 import "./Home.css";
 import Movie from "../Movie/Movie";
+import {useState,useEffect} from "react";
+import axios from "axios";
 
 export default function Home(props){
-    const movies = [
-        {
-            id: 1,
-            img: "https://cafecomnerd.com.br/wp-content/uploads/2020/09/2067-filme-ficcao-cientifica-humanidade-em-busca-de-oxigenio-utilizando-viagem-no-tempo.jpg"
-        },
-        {
-            id: 2,
-            img: "https://upload.wikimedia.org/wikipedia/pt/e/e6/Enola_Holmes_poster.jpeg"
-        },
-        {
-            id: 3,
-            img: "https://upload.wikimedia.org/wikipedia/pt/e/e6/Enola_Holmes_poster.jpeg"
-        }
-    ]
+    const [movies,setMovies] = useState([]);
+    useEffect(()=>{
+        const promise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies");
+        promise.then((answer)=>{setMovies(answer.data)})
+    },[]);
+    console.log(movies);
     return (
         <div className="content">
             <div className="title">
                 Selecione o filme        
             </div>
             <ul>
-                {movies.map((movie)=><Movie key={movie.id} movie={movie} changeId={props.changeId}/>)}
+                {movies.map((movie)=><Movie key={movie.id} movie={movie}/>)}
             </ul>
         </div>
     );

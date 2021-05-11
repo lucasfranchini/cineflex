@@ -4,17 +4,17 @@ import React from "react";
 import {BrowserRouter,Switch,Route} from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
-import Session from "./Components/Session";
+import Session from "./Components/Session/Session";
 
 function App(){
-	const [selectedId, setSelectedId] = React.useState(0);
+	
 
     return (
 		<BrowserRouter>
             <Header/>
 			<Switch>
 				<Route path="/" exact>
-                    <Home changeId={setSelectedId}/>
+                    <Home/>
 				</Route>
 				<Route path="/sessoes/:idFilme" exact>
                     <Session/>
