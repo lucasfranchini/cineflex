@@ -22,7 +22,9 @@ export default function Session(){
     return (
         <div className="content-with-footer">
             <Content title= "Selecione o filme">
-                {movie !== false && movie.days.map((day)=> <Day key={day.id} day={day}/>)}
+                <ul>
+                    {movie !== false && movie.days.map((day)=> <Day key={day.id} day={day}/>)}
+                </ul>
             </Content>
             <Footer img={movie.posterURL} title={movie.title}/>
         </div>

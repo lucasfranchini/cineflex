@@ -6,4 +6,17 @@
     border-radius: 12px;
     margin-right: 5px;
     margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    line-height: 13px;
+}
+.selected{
+    background-color: #8DD7CF;
+    border-color: #1AAE9E;
+}
+.unavaliable{
+    background-color: #FBE192;
+    border-color: #F7C52B;
 }

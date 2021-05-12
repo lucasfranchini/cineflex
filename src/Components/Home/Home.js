@@ -17,7 +17,9 @@ export default function Home(props){
     }
     return (
         <Content title= "Selecione o filme">
-                {movies.map((movie)=><Movie key={movie.id} movie={movie}/>)}        
+            <ul>
+                {movies.map((movie)=><Movie key={movie.id} movie={movie}/>)} 
+            </ul>        
         </Content>
        
     );

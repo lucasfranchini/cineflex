@@ -1,3 +1,4 @@
+import "./seats.css";
 import {useParams} from "react-router-dom";
 import {useState,useEffect} from "react";
 import axios from "axios";
@@ -9,6 +10,11 @@ import Seat from "../Seat/Seat";
 export default function Seats(){
     const id = (useParams().idSessao);
     const [session,letSession] = useState(false);
+    const [reservation,setReservation]= useState({
+        ids: [],
+        name: "",
+        cpf: ""
+    });
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${id}/seats`);
         promise.then((answer)=>letSession(answer.data))
@@ -23,20 +29,26 @@ export default function Seats(){
         <>
             <div className="content-with-footer">
                 <Content title= "Selecione o(s) assento(s)">
-                    {session.seats.map(()=><Seat/>)}
+                    <ul>
+                        {session.seats.map((seat)=><Seat key={seat.id} seat={seat}/>)}
+                    </ul>
+                    <div className="examples">
+                        <div className="example">
+                            <div className="seat selected"/>
+                            <span>Selecionado</span>
+                        </div>
+                        <div className="example">
+                            <div className="seat"/>
+                            <span>Disponível</span>
+                        </div>
+                        <div className="example">
+                            <div className="seat unavaliable"/>
+                            <span>Indisponível</span>
+                        </div>
+                    </div>
                 </Content>
                 <Footer img={session.movie.posterURL} title={session.movie.title}/>
             </div>
         </>
     );
 }
-
-/*
-const row = Math.ceil(session.seats.length/10);
-    const seatsRow = [];
-    for(let i=0;i<row;i++){
-        for(let j=0;j<10;j++){
-            
-        }
-    }
-    */

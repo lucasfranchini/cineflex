@@ -7,9 +7,7 @@ export default function Content(props){
             <div className="title">
                 {title}        
             </div>
-            <ul>
                 {props.children}
-            </ul>
         </div>
     );
 }
