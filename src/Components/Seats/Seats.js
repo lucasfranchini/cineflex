@@ -4,6 +4,7 @@ import axios from "axios";
 import Content from "../Content/Content";
 import Footer from "../Footer/Footer";
 import Loading from "../Loading/Loading";
+import Seat from "../Seat/Seat";
 
 export default function Seats(){
     const id = (useParams().idSessao);
@@ -22,9 +23,20 @@ export default function Seats(){
         <>
             <div className="content-with-footer">
                 <Content title= "Selecione o(s) assento(s)">
+                    {session.seats.map(()=><Seat/>)}
                 </Content>
                 <Footer img={session.movie.posterURL} title={session.movie.title}/>
             </div>
         </>
     );
 }
+
+/*
+const row = Math.ceil(session.seats.length/10);
+    const seatsRow = [];
+    for(let i=0;i<row;i++){
+        for(let j=0;j<10;j++){
+            
+        }
+    }
+    */

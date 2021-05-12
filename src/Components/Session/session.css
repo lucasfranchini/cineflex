@@ -1,3 +1,6 @@
 .content-with-footer .content{
     margin-bottom: 120px;
+    width: 375px;
+    margin-left: auto;
+    margin-right: auto;
 }
