@@ -1,8 +1,7 @@
 import "./content.css";
 
 export default function Content(props){
-    const {title}=props; 
-    console.log(props);
+    const {title}=props;
     if(props.children.length===0 || props.children===false){
         return (
             <div className="content">

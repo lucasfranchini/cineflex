@@ -12,8 +12,6 @@ export default function Session(){
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${id}/showtimes`);
         promise.then((answer)=>setMovie(answer.data))
     },[id]);
-    console.log(!movie)
-
     return (
         <>
             <Content title= "Selecione o filme">
