@@ -11,7 +11,7 @@ export default function Seat(props){
             reservation.ids.push(seat.id);
             setReservation({...reservation});
             setType("seat selected");    
-        }   
+        }else alert("Esse assento não está disponível");
     }
     function deselectSeat(){
          reservation.ids = reservation.ids.filter((id)=>seat.id!==id);
