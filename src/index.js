@@ -5,6 +5,7 @@ import {BrowserRouter,Switch,Route} from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import Session from "./Components/Session/Session";
+import Seats from "./Components/Seats/Seats";
 
 function App(){
 	
@@ -18,6 +19,9 @@ function App(){
 				</Route>
 				<Route path="/sessoes/:idFilme" exact>
                     <Session/>
+				</Route>
+				<Route path="/assentos/:idSessao" exact>
+                    <Seats/>
 				</Route>
 			</Switch>
 		</BrowserRouter>
