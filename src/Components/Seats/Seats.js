@@ -10,7 +10,7 @@ import Examples from "../Examples/Examples";
 
 export default function Seats(){
     const id = (useParams().idSessao);
-    const [session,letSession] = useState(false);
+    const [session,setSession] = useState(false);
     const [reservation,setReservation]= useState({
         ids: [],
         name: "",
@@ -18,7 +18,7 @@ export default function Seats(){
     });
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${id}/seats`);
-        promise.then((answer)=>letSession(answer.data))
+        promise.then((answer)=>setSession(answer.data))
     },[id]);
     console.log(session);
     if(session===false){
@@ -26,21 +26,22 @@ export default function Seats(){
             <Loading/>
         )
     }
+    console.log(reservation);
     return(
         <>
             <div className="content-with-footer">
                 <Content title= "Selecione o(s) assento(s)">
                     <ul>
-                        {session.seats.map((seat)=><Seat key={seat.id} seat={seat}/>)}
+                        {session.seats.map((seat)=><Seat key={seat.id} seat={seat} setReservation={setReservation} reservation={reservation}/>)}
                     </ul>
                     <Examples/>
                     <div className="data">
                         <span>Nome do comprador:</span>
-                        <input type="text" placeholder="Digite seu nome..." onChange={()=>console.log("ola")}/>
+                        <input type="text" placeholder="Digite seu nome..." onChange={(e)=>setReservation({...reservation,name: e.target.value})} value={reservation.name}/>
                     </div>
                     <div className="data">
                         <span>CPF do comprador:</span>
-                        <input type="text" placeholder="Digite seu nome..." onChange={()=>console.log("ola")}/>
+                        <input type="text" placeholder="Digite seu nome..." onChange={(e)=>setReservation({...reservation,cpf: e.target.value})} value={reservation.cpf}/>
                     </div>
                     <button>Reservar assento(s)</button>
                 </Content>
