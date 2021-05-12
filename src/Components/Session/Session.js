@@ -5,6 +5,7 @@ import {useState,useEffect} from "react";
 import axios from "axios";
 import Day from "../Day/Day";
 import Content from "../Content/Content";
+import Loading from "../Loading/Loading";
 
 export default function Session(){
     const [movie,setMovie] = useState(false);
@@ -13,6 +14,11 @@ export default function Session(){
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${id}/showtimes`);
         promise.then((answer)=>setMovie(answer.data))
     },[id]);
+    if(movie===false){
+        return (
+            <Loading/>
+        )
+    }
     return (
         <div className="content-with-footer">
             <Content title= "Selecione o filme">
@@ -22,14 +28,3 @@ export default function Session(){
         </div>
     );
 }
-
-/*
-<div className="content">
-                <div className="title">
-                    Selecione o horário      
-                </div>
-                <ul>
-                    {movie.days.map((day)=> <Day key={day.id} day={day}/>)}
-                </ul>
-            </div>
-            */
