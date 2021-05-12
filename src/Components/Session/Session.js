@@ -1,3 +1,4 @@
+import "./session.css"
 import Footer from "../Footer/Footer";
 import {useParams} from "react-router-dom";
 import {useState,useEffect} from "react";
@@ -13,12 +14,12 @@ export default function Session(){
         promise.then((answer)=>setMovie(answer.data))
     },[id]);
     return (
-        <>
+        <div className="content-with-footer">
             <Content title= "Selecione o filme">
                 {movie !== false && movie.days.map((day)=> <Day key={day.id} day={day}/>)}
             </Content>
             <Footer img={movie.posterURL} title={movie.title}/>
-        </>
+        </div>
     );
 }
 
