@@ -53,3 +53,9 @@ table {
 a{
     text-decoration: none;
 }
+input::placeholder {
+    font-style: italic;
+}
+input:focus{
+    outline-width: 0;
+}

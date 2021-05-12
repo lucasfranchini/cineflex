@@ -6,6 +6,7 @@ import Content from "../Content/Content";
 import Footer from "../Footer/Footer";
 import Loading from "../Loading/Loading";
 import Seat from "../Seat/Seat";
+import Examples from "../Examples/Examples";
 
 export default function Seats(){
     const id = (useParams().idSessao);
@@ -32,20 +33,16 @@ export default function Seats(){
                     <ul>
                         {session.seats.map((seat)=><Seat key={seat.id} seat={seat}/>)}
                     </ul>
-                    <div className="examples">
-                        <div className="example">
-                            <div className="seat selected"/>
-                            <span>Selecionado</span>
-                        </div>
-                        <div className="example">
-                            <div className="seat"/>
-                            <span>Disponível</span>
-                        </div>
-                        <div className="example">
-                            <div className="seat unavaliable"/>
-                            <span>Indisponível</span>
-                        </div>
+                    <Examples/>
+                    <div className="data">
+                        <span>Nome do comprador:</span>
+                        <input type="text" placeholder="Digite seu nome..." onChange={()=>console.log("ola")}/>
                     </div>
+                    <div className="data">
+                        <span>CPF do comprador:</span>
+                        <input type="text" placeholder="Digite seu nome..." onChange={()=>console.log("ola")}/>
+                    </div>
+                    <button>Reservar assento(s)</button>
                 </Content>
                 <Footer img={session.movie.posterURL} title={session.movie.title}/>
             </div>
