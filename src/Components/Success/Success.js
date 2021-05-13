@@ -1,6 +1,7 @@
 import "./success.css";
 import Content from "../Content/Content";
 import Info from "../info/Info";
+import { Link } from "react-router-dom";
 
 
 export default function Success(props){
@@ -24,6 +25,7 @@ export default function Success(props){
                 <Info title="Filme e Sessao" firstInfo={reservation.name} secondInfo ={`${reservation.day} ${reservation.time}`}/>
                 <Info title="Ingressos" firstInfo={reservation.seats}/>
                 <Info title="Comprador" firstInfo={`Nome: ${reservation.letter.name}`} secondInfo ={`CPF: ${newCPF}`}/>
+                <Link to="/"><button>Voltar pra Home</button></Link>
             </Content>
         </div>
     );
