@@ -8,7 +8,7 @@ export default function Seat(props){
     useEffect(()=>{if(seat.isAvailable===false) setType("seat unavaliable");},[setType,seat.isAvailable]);
     function selectSeat(){
         if(seat.isAvailable===true){
-            reservation.ids.push(seat.id);
+            reservation.letter.ids.push(seat.id);
             setReservation({...reservation});
             setType("seat selected");    
         }else alert("Esse assento não está disponível");

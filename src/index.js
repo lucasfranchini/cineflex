@@ -6,9 +6,20 @@ import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import Session from "./Components/Session/Session";
 import Seats from "./Components/Seats/Seats";
+import Success from "./Components/Succes/Succes";
+import {useState} from "react";
 
 function App(){
-	
+	const [reservation,setReservation]= useState({
+        name: "",
+		day: "",
+		time: "",
+		letter: {
+			ids: [],
+			name: "",
+			cpf: ""
+		}
+    });
 
     return (
 		<BrowserRouter>
@@ -21,7 +32,10 @@ function App(){
                     <Session/>
 				</Route>
 				<Route path="/assentos/:idSessao" exact>
-                    <Seats/>
+                    <Seats reservation={reservation} setReservation={setReservation}/>
+				</Route>
+				<Route path="/sucesso" exact>
+                    <Success reservation={reservation}/>
 				</Route>
 			</Switch>
 		</BrowserRouter>
