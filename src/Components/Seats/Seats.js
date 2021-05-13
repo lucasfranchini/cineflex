@@ -24,7 +24,7 @@ export default function Seats(props){
         reservation.day= session.day.date;
         reservation.time = session.name;
         const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",letter);
-        promise.then(()=>setRedirect(true));
+        promise.then((answer)=>console.log(answer));
         
     }
     if(session===false){
