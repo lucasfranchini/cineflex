@@ -1,5 +1,5 @@
 import "./seats.css";
-import {Redirect, useParams} from "react-router-dom";
+import { useHistory, useParams} from "react-router-dom";
 import {useState,useEffect} from "react";
 import axios from "axios";
 import Content from "../Content/Content";
@@ -13,18 +13,18 @@ export default function Seats(props){
     const {reservation,setReservation} = props;
     const {letter} = reservation;
     const [session,setSession] = useState(false);
-    const [redirect,setRedirect] = useState(false);
+    let history = useHistory();
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${id}/seats`);
         promise.then((answer)=>setSession(answer.data))
     },[id]);
-    console.log(session);
+    console.log(history);
     function sendRequest(){
         reservation.name=session.movie.title;
         reservation.day= session.day.date;
         reservation.time = session.name;
         const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",letter);
-        promise.then((answer)=>console.log(answer));
+        promise.then(()=>history.push("/sucesso"));
         
     }
     if(session===false){
@@ -37,7 +37,6 @@ export default function Seats(props){
     return(
         <>
             <div className="content-with-footer">
-                {redirect && <Redirect to="/sucesso"/>}
                 <Content title= "Selecione o(s) assento(s)">
                     <ul>
                         {session.seats.map((seat)=><Seat key={seat.id} seat={seat} setReservation={setReservation} reservation={reservation}/>)}

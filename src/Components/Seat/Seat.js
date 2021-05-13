@@ -9,6 +9,7 @@ export default function Seat(props){
     function selectSeat(){
         if(seat.isAvailable===true){
             reservation.letter.ids.push(seat.id);
+            reservation.seats.push(seat.name)
             setReservation({...reservation});
             setType("seat selected");    
         }else alert("Esse assento não está disponível");

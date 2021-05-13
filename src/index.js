@@ -6,7 +6,7 @@ import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import Session from "./Components/Session/Session";
 import Seats from "./Components/Seats/Seats";
-import Success from "./Components/Succes/Succes";
+import Success from "./Components/Success/Success";
 import {useState} from "react";
 
 function App(){
@@ -14,6 +14,7 @@ function App(){
         name: "",
 		day: "",
 		time: "",
+		seats: [],
 		letter: {
 			ids: [],
 			name: "",

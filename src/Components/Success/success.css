@@ -1,0 +1,11 @@
+.success .content {
+    color: #247A6B;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.success .title{
+    width: 50%;
+    text-align: center;
+}
