@@ -11,6 +11,7 @@ import Examples from "../Examples/Examples";
 export default function Seats(props){
     const id = (useParams().idSessao);
     const {reservation,setReservation} = props;
+    const {letter} = reservation;
     const [session,setSession] = useState(false);
     const [redirect,setRedirect] = useState(false);
     useEffect(()=>{
@@ -19,7 +20,10 @@ export default function Seats(props){
     },[id]);
     console.log(session);
     function sendRequest(){
-        const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",reservation.letter);
+        reservation.name=session.movie.title;
+        reservation.day= session.day.date;
+        reservation.time = session.name;
+        const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",letter);
         promise.then(()=>setRedirect(true));
         
     }
@@ -28,6 +32,7 @@ export default function Seats(props){
             <Loading/>
         )
     }
+    
     console.log(reservation);
     return(
         <>
@@ -40,11 +45,11 @@ export default function Seats(props){
                     <Examples/>
                     <div className="data">
                         <span>Nome do comprador:</span>
-                        <input type="text" placeholder="Digite seu nome..." onChange={(e)=>{reservation.letter.name=e.target.value;setReservation({...reservation})}} value={reservation.letter.name}/>
+                        <input type="text" placeholder="Digite seu nome..." onChange={(e)=>{letter.name=e.target.value;setReservation({...reservation})}} value={reservation.letter.name}/>
                     </div>
                     <div className="data">
                         <span>CPF do comprador:</span>
-                        <input type="text" placeholder="Digite seu nome..." onChange={(e)=>{reservation.letter.cpf=e.target.value;setReservation({...reservation})}} value={reservation.letter.cpf}/>
+                        <input type="text" placeholder="Digite seu nome..." onChange={(e)=>{letter.cpf=e.target.value;setReservation({...reservation})}} value={reservation.letter.cpf}/>
                     </div>
                     <button onClick={sendRequest}>Reservar assento(s)</button>
                 </Content>
