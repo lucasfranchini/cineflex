@@ -6,7 +6,10 @@ export default function Footer(props){
             <div className="movie">
                 <img src={props.img} alt={props.title}/>
             </div>
-            <span>{props.title}</span>
+            <div className="text">
+                <span>{props.title}</span>
+                <span>{props.date}</span>
+            </div>
         </div>
     );
 }

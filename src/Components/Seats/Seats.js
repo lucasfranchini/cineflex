@@ -53,7 +53,7 @@ export default function Seats(props){
                     </div>
                     <button onClick={sendRequest}>Reservar assento(s)</button>
                 </Content>
-                <Footer img={session.movie.posterURL} title={session.movie.title}/>
+                <Footer img={session.movie.posterURL} title={session.movie.title} date={`${session.day.weekday} - ${session.name}`}/>
             </div>
         </>
     );

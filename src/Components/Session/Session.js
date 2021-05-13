@@ -26,7 +26,7 @@ export default function Session(){
                     {movie !== false && movie.days.map((day)=> <Day key={day.id} day={day}/>)}
                 </ul>
             </Content>
-            <Footer img={movie.posterURL} title={movie.title}/>
+            <Footer img={movie.posterURL} title={movie.title} date=""/>
         </div>
     );
 }
