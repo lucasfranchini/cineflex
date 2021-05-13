@@ -14,11 +14,12 @@ export default function Seats(props){
     const {letter} = reservation;
     const [session,setSession] = useState(false);
     let history = useHistory();
+    
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${id}/seats`);
         promise.then((answer)=>setSession(answer.data))
     },[id]);
-    console.log(history);
+
     function sendRequest(){
         reservation.name=session.movie.title;
         reservation.day= session.day.date;
@@ -27,13 +28,12 @@ export default function Seats(props){
         promise.then(()=>history.push("/sucesso"));
         
     }
+
     if(session===false){
         return (
             <Loading/>
         )
     }
-    
-    console.log(reservation);
     return(
         <>
             <div className="content-with-footer">
