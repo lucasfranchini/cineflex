@@ -15,7 +15,7 @@ export default function Seats(props){
     const {letter} = reservation;
     const [session,setSession] = useState(false);
     let history = useHistory();
-    
+    console.log(reservation)
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${id}/seats`);
         promise.then((answer)=>{
@@ -23,19 +23,33 @@ export default function Seats(props){
         });
     },[id]);
 
-    useEffect(()=>{
-        props.setPages(true);
-        props.reservation.seats=[]
-    },[props]);
+    useEffect(()=>props.setPages(true),[props]);
 
     function sendRequest(){
-        reservation.name=session.movie.title;
-        reservation.day= session.day.date;
-        reservation.time = session.name;
-        const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",letter);
-        promise.then(()=>{
-            history.push("/sucesso");
-        });
+        if(reservation.seats.length !== 0){
+            reservation.name=session.movie.title;
+            reservation.day= session.day.date;
+            reservation.time = session.name;
+            const compradores =reservation.letter.compradores;
+            let verification =true;
+            for(let i=0;i<compradores.length;i++){
+                if(compradores[i].nome === "" || compradores[i].cpf === "" ){
+                    verification=false;
+                    break;
+                }
+            }
+            if(verification){
+                const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",letter);
+                promise.then(()=>{
+                    history.push("/sucesso");
+                });
+                promise.catch(()=>alert(`ops!\n alguma coisa deu errado, atualize a pagina e tente comprar novamente`));
+            }
+            else alert("Preencha corretamente os dados dos compradores");
+            
+        }
+        else alert("selecione ao menos um assento");
+        
     }
 
     if(session===false){
