@@ -14,7 +14,7 @@ export default function Session(props){
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${id}/showtimes`);
         promise.then((answer)=>{
             setMovie(answer.data);
-            props.setPages(2);
+            props.setPages(true);
         });
     },[id,props]);
     if(movie===false) return (<Loading/>);

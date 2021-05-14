@@ -10,7 +10,7 @@ export default function Home(props){
         const promise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies");
         promise.then((answer)=>{
             setMovies(answer.data);
-            props.setPages(1);
+            props.setPages(false);
         })
     },[props]);
     if(movies===false){

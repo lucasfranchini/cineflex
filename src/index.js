@@ -20,7 +20,7 @@ function App(){
 			compradores: []
 		}
     });
-	const [pages,setPages] = useState(1);
+	const [pages,setPages] = useState(false);
     return (
 		<BrowserRouter>
             <Header pages={pages} setPages={setPages}/>
@@ -32,10 +32,10 @@ function App(){
                     <Session setPages={setPages}/>
 				</Route>
 				<Route path="/assentos/:idSessao" exact>
-                    <Seats reservation={reservation} setReservation={setReservation} setPages={setPages}/>
+                    <Seats reservation={reservation} setReservation={setReservation} />
 				</Route>
 				<Route path="/sucesso" exact>
-                    <Success reservation={reservation} setPages={setPages}/>
+                    <Success reservation={reservation} />
 				</Route>
 			</Switch>
 		</BrowserRouter>

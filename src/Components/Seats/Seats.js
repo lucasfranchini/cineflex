@@ -19,10 +19,9 @@ export default function Seats(props){
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${id}/seats`);
         promise.then((answer)=>{
-            props.setPages(3);
             setSession(answer.data) 
         });
-    },[id,props]);
+    },[id]);
 
     function sendRequest(){
         reservation.name=session.movie.title;
