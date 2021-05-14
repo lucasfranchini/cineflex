@@ -4,10 +4,11 @@
 
 ##Requisitos
 
--Este é o primeiro projeto que usamos React desde o inicio do projeto, não só uma refatoração de projetos antigos.
--O layout requisitado esta no figma: https://www.figma.com/file/rc7ZTYfLZg9zpGahWB1aXb/Cineflex
--necessario aplicar o conceito de single page aplication, utilizando react-router-dom.
--4paginas solicitadas:
+- Este é o primeiro projeto que usamos React desde o inicio do projeto, não só uma refatoração de projetos antigos.
+- O layout requisitado esta no figma: https://www.figma.com/file/rc7ZTYfLZg9zpGahWB1aXb/Cineflex
+- necessario aplicar o conceito de single page aplication, utilizando react-router-dom.
+- 4 paginas solicitadas:
+
   1. "/": A pagina inicial, necessario solicatar os filmes de um servidor dado e mostra-los nessa pagina
   2. "/sessoes/:idFilme": Esta pagina é acessada quando clicamos em um filme de nossa escolha, a pagina é renderizada mostrando as sessões e dias de cada sessão do filme escolhido
   3. "/assentos/:idSessao": Apóes Escolher uma sessão do filme, esta pagina é renderizado mostrando todos os assentos disponiveis e indisponiveis para aquela sessão. Esta é a pagina que foi solicitado a maior quantidade de requisitos, é necessario mudar a cor do assento selecionado pelo usuario para verde claro. como um bonus cada assento tera um comprador diferente, então para cada assento clicado é necessario gerar novos dois inputs pedindo o nome do comprador e seu cpf.
