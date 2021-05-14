@@ -1,8 +1,8 @@
-##Conceito
+## Conceito
 
   Esse é o nono projeto solicitado durante o Bootcamp Respondeaí, a ideia do projeto foi fazer o layout,fornecido atraves do figma, de um site mobile que reserva assentos em sessões de filmes.
 
-##Requisitos
+## Requisitos
 
 - Este é o primeiro projeto que usamos React desde o inicio do projeto, não só uma refatoração de projetos antigos.
 - O layout requisitado esta no figma: https://www.figma.com/file/rc7ZTYfLZg9zpGahWB1aXb/Cineflex
@@ -14,7 +14,7 @@
   3. "/assentos/:idSessao": Apóes Escolher uma sessão do filme, esta pagina é renderizado mostrando todos os assentos disponiveis e indisponiveis para aquela sessão. Esta é a pagina que foi solicitado a maior quantidade de requisitos, é necessario mudar a cor do assento selecionado pelo usuario para verde claro. como um bonus cada assento tera um comprador diferente, então para cada assento clicado é necessario gerar novos dois inputs pedindo o nome do comprador e seu cpf.
   4. "/sucesso": após clicar no botão de agendar, o pedido é enviado para um servidor e, ao voltar com um sucesso, essa pagina é carregada mostrando todos os dados do pedido feito.
 
-##Scripts
+## Scripts
 
 Neste Projeto, você pode executar os scripts fornecidos pelo create-react-app abaxio:
 
