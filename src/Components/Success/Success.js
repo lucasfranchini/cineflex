@@ -32,7 +32,7 @@ export default function Success(props){
                 <Info title="Filme e Sessao" firstInfo={reservation.name} secondInfo ={`${reservation.day} ${reservation.time}`}/>
                 <Info title="Ingressos" firstInfo={reservation.seats}/>
                 {reservation.letter.compradores.map((comprador,i)=><Info key={comprador.idAssento} title={`Comprador do assento ${reservation.seats[i]}`} firstInfo={`Nome: ${comprador.nome}`} secondInfo ={`CPF: ${comprador.cpf}`}/>)}
-                <Link to="/"><button>Voltar pra Home</button></Link>
+                <Link to="/"><button onClick={props.cleanReservation}>Voltar pra Home</button></Link>
             </Content>
         </div>
     );
