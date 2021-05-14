@@ -31,9 +31,8 @@ export default function Seats(props){
             props.setPages(4);
             history.push("/sucesso");
         });
-        
     }
-
+    console.log(reservation)
     if(session===false){
         return (
             <Loading/>
