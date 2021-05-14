@@ -23,7 +23,10 @@ export default function Seats(props){
         });
     },[id]);
 
-    useEffect(()=>props.setPages(true),[props]);
+    useEffect(()=>{
+        props.setPages(true);
+        props.reservation.seats=[]
+    },[props]);
 
     function sendRequest(){
         reservation.name=session.movie.title;
