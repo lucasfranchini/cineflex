@@ -7,6 +7,7 @@
 - Este é o primeiro projeto que usamos React desde o inicio do projeto, não só uma refatoração de projetos antigos.
 - O layout requisitado esta no figma: https://www.figma.com/file/rc7ZTYfLZg9zpGahWB1aXb/Cineflex
 - necessario aplicar o conceito de single page aplication, utilizando react-router-dom.
+- o cabeçalho como bonus tem um botão de voltar de pagina, que aparece em todas as paginas, menos na pagina inicial
 - 4 paginas solicitadas:
 
   1. "/": A pagina inicial, necessario solicatar os filmes de um servidor dado e mostra-los nessa pagina
