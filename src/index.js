@@ -20,10 +20,24 @@ function App(){
 			compradores: []
 		}
     });
+	function cleanReservation(){
+		setReservation(
+			{
+				name: "",
+				day: "",
+				time: "",
+				seats: [],
+				letter: {
+					ids: [],
+					compradores: []
+				}
+			}
+		);
+	}
 	const [pages,setPages] = useState(false);
     return (
 		<BrowserRouter>
-            <Header pages={pages} setPages={setPages}/>
+            <Header pages={pages} setPages={setPages} cleanReservation={cleanReservation}/>
 			<Switch>
 				<Route path="/" exact>
                     <Home pages={pages} setPages={setPages}/>
