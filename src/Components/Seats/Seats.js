@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import Loading from "../Loading/Loading";
 import Seat from "../Seat/Seat";
 import Examples from "../Examples/Examples";
+import Data from "../Data/Data";
 
 export default function Seats(props){
     const id = (useParams().idSessao);
@@ -46,19 +47,7 @@ export default function Seats(props){
                         {session.seats.map((seat)=><Seat key={seat.id} seat={seat} setReservation={setReservation} reservation={reservation}/>)}
                     </ul>
                     <Examples/>
-                    {reservation.seats.map((seat,i)=>(
-                        <>
-                            <span key={i} className="seat-title">{`Assento: ${seat}`}</span>
-                            <div className="data">
-                                <span>Nome do comprador:</span>
-                                <input type="text" placeholder="Digite seu nome..." onChange={(e)=>{letter.name=e.target.value;setReservation({...reservation})}} value={reservation.letter.name}/>
-                            </div>
-                            <div className="data">
-                                <span>CPF do comprador:</span>
-                                <input type="text" placeholder="Digite seu nome..." onChange={(e)=>{letter.cpf=e.target.value;setReservation({...reservation})}} value={reservation.letter.cpf}/>
-                            </div>
-                        </>
-                    ))}
+                    {reservation.seats.map((seat,i)=>(<Data key={i} seat={seat} reservation={reservation} setReservation={setReservation}/>))}
                     
                     <button onClick={sendRequest}>Reservar assento(s)</button>
                 </Content>

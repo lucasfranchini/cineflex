@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import organize from "../Organize";
 import "./seat.css";
 
 export default function Seat(props){
@@ -10,17 +11,21 @@ export default function Seat(props){
         if(seat.isAvailable===true){
             reservation.letter.ids.push(seat.id);
             reservation.seats.push(seat.name);
-            reservation.seats.sort((seat1,seat2)=>{
-                if(parseInt(seat1)<parseInt(seat2)) return -1;
-                if(parseInt(seat1)>parseInt(seat2)) return 1;
-                return 0;
-            });
+            reservation.letter.compradores.push({
+                idAssento: seat.id,
+                nome: "",
+                cpf: ""
+            })
+            reservation.seats.sort((seat1,seat2)=>organize(seat1,seat2));
+            reservation.letter.ids.sort((id1,id2)=>organize(id1,id2));
+            reservation.letter.compradores.sort((comprador1,comprador2)=>organize(comprador1.idAssento,comprador2.idAssento));
             setReservation({...reservation});
             setType("seat selected");    
         }else alert("Esse assento não está disponível");
     }
     function deselectSeat(){
         reservation.letter.ids = reservation.letter.ids.filter((id)=>seat.id!==id);
+        reservation.letter.compradores = reservation.letter.compradores.filter((comprador)=>seat.id!==comprador.idAssento);
         reservation.seats = reservation.seats.filter((seatSelected)=>seatSelected!==seat.name);
         setReservation({...reservation});
         setType("seat");    

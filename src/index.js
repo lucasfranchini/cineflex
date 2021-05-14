@@ -17,8 +17,7 @@ function App(){
 		seats: [],
 		letter: {
 			ids: [],
-			name: "",
-			cpf: ""
+			compradores: []
 		}
     });
 	const [pages,setPages] = useState(1);
