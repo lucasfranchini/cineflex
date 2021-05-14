@@ -32,10 +32,10 @@ function App(){
                     <Session setPages={setPages}/>
 				</Route>
 				<Route path="/assentos/:idSessao" exact>
-                    <Seats reservation={reservation} setReservation={setReservation} />
+                    <Seats reservation={reservation} setReservation={setReservation} setPages={setPages}/>
 				</Route>
 				<Route path="/sucesso" exact>
-                    <Success reservation={reservation} />
+                    <Success reservation={reservation} setPages={setPages}/>
 				</Route>
 			</Switch>
 		</BrowserRouter>

@@ -2,6 +2,7 @@ import "./success.css";
 import Content from "../Content/Content";
 import Info from "../info/Info";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 
 export default function Success(props){
@@ -21,7 +22,9 @@ export default function Success(props){
             }
         }
         comprador.cpf = newCPF;
-    })
+    });
+
+    useEffect(()=>props.setPages(true),[props])
     
     return (
         <div className="success">

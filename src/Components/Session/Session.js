@@ -13,10 +13,10 @@ export default function Session(props){
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${id}/showtimes`);
         promise.then((answer)=>{
-            setMovie(answer.data);
-            props.setPages(true);
+            setMovie(answer.data); 
         });
-    },[id,props]);
+    },[id]);
+    useEffect(()=>props.setPages(true),[props])
     if(movie===false) return (<Loading/>);
     return (
         <div className="content-with-footer">
