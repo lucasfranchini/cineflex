@@ -23,6 +23,7 @@ export default function Seats(props){
             setSession(answer.data) 
         });
     },[id,props]);
+    
     function sendRequest(){
         reservation.name=session.movie.title;
         reservation.day= session.day.date;
@@ -33,7 +34,7 @@ export default function Seats(props){
             history.push("/sucesso");
         });
     }
-    console.log(reservation)
+
     if(session===false){
         return (
             <Loading/>
@@ -48,7 +49,6 @@ export default function Seats(props){
                     </ul>
                     <Examples/>
                     {reservation.seats.map((seat,i)=>(<Data key={i} seat={seat} reservation={reservation} setReservation={setReservation}/>))}
-                    
                     <button onClick={sendRequest}>Reservar assento(s)</button>
                 </Content>
                 <Footer img={session.movie.posterURL} title={session.movie.title} date={`${session.day.weekday} - ${session.name}`}/>

@@ -2,18 +2,6 @@
     height: 90px;
     padding-top: 20px;
 }
-.data{
-    display: flex;
-    flex-direction: column;
-    padding: 0 25px 0 30px;
-    font-size: 18px;
-    margin: 10px 0;
-}
-.data input{
-    height: 51px;
-    border: 1px solid #D5D5D5;
-    font-size: 18px;
-}
 .content-with-footer button{
     width: 225px;
     height: 42px;

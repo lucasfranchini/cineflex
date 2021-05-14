@@ -1,3 +1,5 @@
+import "./data.css";
+
 export default function Data(props){
     const {reservation,setReservation,seat} = props;
     const {letter} = reservation;
@@ -12,7 +14,7 @@ export default function Data(props){
         letter.compradores[buyer].cpf=e.target.value;
         setReservation({...reservation});
     }
-    
+
     return (
         <div>
             <span  className="seat-title">{`Assento: ${seat}`}</span>
