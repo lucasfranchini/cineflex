@@ -8,8 +8,11 @@ export default function Home(props){
     const [movies,setMovies] = useState(false);
     useEffect(()=>{
         const promise = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies");
-        promise.then((answer)=>{setMovies(answer.data)})
-    },[]);
+        promise.then((answer)=>{
+            setMovies(answer.data);
+            props.setPages(1);
+        })
+    },[props]);
     if(movies===false){
         return (
             <Loading/>

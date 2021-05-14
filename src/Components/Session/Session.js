@@ -7,18 +7,17 @@ import Day from "../Day/Day";
 import Content from "../Content/Content";
 import Loading from "../Loading/Loading";
 
-export default function Session(){
+export default function Session(props){
     const [movie,setMovie] = useState(false);
     const id = (useParams().idFilme);
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/${id}/showtimes`);
-        promise.then((answer)=>setMovie(answer.data))
-    },[id]);
-    if(movie===false){
-        return (
-            <Loading/>
-        )
-    }
+        promise.then((answer)=>{
+            setMovie(answer.data);
+            props.setPages(2);
+        });
+    },[id,props]);
+    if(movie===false) return (<Loading/>);
     return (
         <div className="content-with-footer">
             <Content title= "Selecione o filme">

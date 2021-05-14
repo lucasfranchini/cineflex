@@ -17,15 +17,20 @@ export default function Seats(props){
     
     useEffect(()=>{
         const promise= axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/showtimes/${id}/seats`);
-        promise.then((answer)=>setSession(answer.data))
-    },[id]);
-
+        promise.then((answer)=>{
+            props.setPages(3);
+            setSession(answer.data) 
+        });
+    },[id,props]);
     function sendRequest(){
         reservation.name=session.movie.title;
         reservation.day= session.day.date;
         reservation.time = session.name;
         const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",letter);
-        promise.then(()=>history.push("/sucesso"));
+        promise.then(()=>{
+            props.setPages(4);
+            history.push("/sucesso");
+        });
         
     }
 

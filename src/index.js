@@ -21,22 +21,22 @@ function App(){
 			cpf: ""
 		}
     });
-
+	const [pages,setPages] = useState(1);
     return (
 		<BrowserRouter>
-            <Header/>
+            <Header pages={pages} setPages={setPages}/>
 			<Switch>
 				<Route path="/" exact>
-                    <Home/>
+                    <Home pages={pages} setPages={setPages}/>
 				</Route>
 				<Route path="/sessoes/:idFilme" exact>
-                    <Session/>
+                    <Session setPages={setPages}/>
 				</Route>
 				<Route path="/assentos/:idSessao" exact>
-                    <Seats reservation={reservation} setReservation={setReservation}/>
+                    <Seats reservation={reservation} setReservation={setReservation} setPages={setPages}/>
 				</Route>
 				<Route path="/sucesso" exact>
-                    <Success reservation={reservation}/>
+                    <Success reservation={reservation} setPages={setPages}/>
 				</Route>
 			</Switch>
 		</BrowserRouter>
