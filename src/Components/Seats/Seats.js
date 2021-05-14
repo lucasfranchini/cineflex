@@ -23,14 +23,13 @@ export default function Seats(props){
             setSession(answer.data) 
         });
     },[id,props]);
-    
+
     function sendRequest(){
         reservation.name=session.movie.title;
         reservation.day= session.day.date;
         reservation.time = session.name;
         const promise = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/seats/book-many",letter);
         promise.then(()=>{
-            props.setPages(4);
             history.push("/sucesso");
         });
     }
